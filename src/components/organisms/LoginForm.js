@@ -9,7 +9,7 @@ export default LoginForm;
 const LOGINDATA = [
   {
     id: 1,
-    type: 'text',
+    type: 'email',
     title: '이메일',
     placeholder: '이메일을 입력해주세요.',
   },
