@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { destroyToken } from '../../lib/auth';
 import List from '../atoms/List';
 
 const Nav = (props) => {
   const history = useHistory();
   const clikedMenu = history.location.pathname;
+
+  useEffect(() => {
+    clikedMenu === '/logout' && destroyToken();
+  }, [clikedMenu]);
 
   return (
     <NavWrapper>
