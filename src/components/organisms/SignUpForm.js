@@ -1,7 +1,7 @@
 import FormInput from '../molecules/FormInput';
 
-const SignUpForm = () => {
-  return <FormInput formdata={SIGNUPDATA} />;
+const SignUpForm = (props) => {
+  return <FormInput formdata={SIGNUPDATA} invalid={props.invalid} />;
 };
 
 export default SignUpForm;
@@ -9,7 +9,7 @@ export default SignUpForm;
 const SIGNUPDATA = [
   {
     id: 1,
-    type: 'text',
+    type: 'email',
     title: '이메일',
     placeholder: '이메일을 입력해주세요.',
   },
