@@ -1,9 +1,9 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import styled from 'styled-components';
 
-const MenuBtn = () => {
+const MenuBtn = (props) => {
   return (
-    <VisiableMenu>
+    <VisiableMenu onClick={props.viewIsOn}>
       <AiOutlineMenu />
     </VisiableMenu>
   );

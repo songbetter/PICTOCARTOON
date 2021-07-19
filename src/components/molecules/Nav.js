@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import List from '../atoms/List';
 
 const Nav = (props) => {
+  const history = useHistory();
+  const clikedMenu = history.location.pathname;
+
   return (
     <NavWrapper>
       {props?.navlist?.map((list) => (
-        <List key={list.id}>
+        <List key={list.id} active={clikedMenu === list.link}>
           <Link to={list.link}>{list.title}</Link>
         </List>
       ))}
@@ -30,5 +33,8 @@ const NavWrapper = styled.ul`
     font-size: 1.125rem;
     line-height: 2rem;
     letter-spacing: 0.013rem;
+    li {
+      padding-left: 0;
+    }
   }
 `;

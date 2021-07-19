@@ -11,11 +11,11 @@ const Header = () => {
   const [viewIsOn, setViewIsOn] = useState(false);
 
   return viewIsOn ? (
-    <NavModal navlist={NAVLIST} />
+    <NavModal navlist={NAVLIST} viewIsClose={() => setViewIsOn(!viewIsOn)} />
   ) : (
     <HeaderWrapper>
       <Logo />
-      <MenuBtn onClick={() => setViewIsOn(!viewIsOn)} />
+      <MenuBtn viewIsOn={() => setViewIsOn(!viewIsOn)} />
       <VisiableNav>
         <Nav navlist={NAVLIST} />
       </VisiableNav>
