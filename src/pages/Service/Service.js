@@ -6,6 +6,7 @@ import Header from '../../components/organisms/Header';
 const Service = () => {
   const history = useHistory();
   const isToken = !!getToken().token;
+
   const alert = () => {
     if (isToken) {
       alert('주문이 완료되었습니다.');
@@ -18,7 +19,10 @@ const Service = () => {
   return (
     <>
       <Header />
-      <ServiceTemplate isToken={isToken} alert={alert} />
+      <ServiceTemplate
+        alert={alert}
+        btnTitle={isToken ? '신청하기' : '주문하기'}
+      />
     </>
   );
 };
