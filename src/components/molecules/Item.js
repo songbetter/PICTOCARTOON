@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import FlexRowBetween from '../atoms/FlexRowBetween';
 
 const Item = (props) => {
-  <Link to={`mypage/order/${props.key}`}>
-    {props.key} {props.name}
-  </Link>;
+  <FlexRowBetween>
+    <Link to={`mypage/order/${props.id}`}>
+      {props.id} {props.name}
+    </Link>
+  </FlexRowBetween>;
 };
 
 export default Item;

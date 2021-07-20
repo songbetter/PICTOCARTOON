@@ -5,8 +5,8 @@ import PageBtn from '../../components/molecules/PageBtn';
 const MypageTemplate = (props) => {
   return (
     <MypageWrapper>
-      <ItemList itemData={props.itemData} />
-      <PageBtn />
+      <ItemList itemList={props.orderList} />
+      <PageBtn totalPages={props.totalPages} pagination={props.pagination} />
     </MypageWrapper>
   );
 };

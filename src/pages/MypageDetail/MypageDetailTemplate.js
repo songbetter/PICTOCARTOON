@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const MypageDetailTemplate = (props) => {
-  return <MypageWrapper></MypageWrapper>;
+  return (
+    <MypageWrapper>
+      {props.orderItem.id} {props.orderItem.itemName}
+    </MypageWrapper>
+  );
 };
 
 export default MypageDetailTemplate;
