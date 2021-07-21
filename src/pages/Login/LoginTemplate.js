@@ -8,11 +8,7 @@ const LoginTemplate = (props) => {
   return (
     <LoginWrapper>
       <Logo />
-      <LoginForm
-        invalid={props.invalid}
-        inputValue={props.inputValue}
-        handleInput={props.handleInput}
-      />
+      <LoginForm handleInput={props.handleInput} />
       <Button onClick={props.submit}>로그인</Button>
     </LoginWrapper>
   );

@@ -13,25 +13,18 @@ const Login = () => {
       [name]: value,
     });
   };
-
   const submit = () => {
     const error = '비밀번호를 확인해주세요.';
     postData(Login_URL, inputValue, error);
     setInputValue(INITIALVALUE);
   };
 
-  return (
-    <LoginTemplate
-      handleInput={handleInput}
-      inputValue={inputValue}
-      submit={submit}
-    />
-  );
+  return <LoginTemplate handleInput={handleInput} submit={submit} />;
 };
 
 export default Login;
 
 const INITIALVALUE = {
-  이메일: '',
-  비밀번호: '',
+  email: '',
+  password: '',
 };

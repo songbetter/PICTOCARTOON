@@ -9,29 +9,20 @@ import NavModal from './NavModal';
 
 const Header = () => {
   const isLogin = !!getToken().token;
-  const NAVLIST = [
-    { id: 1, title: '서비스', link: '/' },
-    {
-      id: 2,
-      title: isLogin ? '마이페이지' : '회원가입',
-      link: isLogin ? '/mypage/order' : '/sign-up',
-    },
-    {
-      id: 3,
-      title: isLogin ? '로그아웃' : '로그인',
-      link: isLogin ? '/logout' : '/login',
-    },
-  ];
+
   const [viewIsOn, setViewIsOn] = useState(false);
 
   return viewIsOn ? (
-    <NavModal navlist={NAVLIST} viewIsClose={() => setViewIsOn(!viewIsOn)} />
+    <NavModal
+      navlist={isLogin ? NAVLIST_MEMBER : NAVLIST}
+      viewIsClose={() => setViewIsOn(!viewIsOn)}
+    />
   ) : (
     <HeaderWrapper>
       <Logo />
       <MenuBtn viewIsOn={() => setViewIsOn(!viewIsOn)} />
       <VisiableNav>
-        <Nav navlist={NAVLIST} />
+        <Nav navlist={isLogin ? NAVLIST_MEMBER : NAVLIST} />
       </VisiableNav>
     </HeaderWrapper>
   );
@@ -50,3 +41,31 @@ const VisiableNav = styled.div`
     display: none;
   }
 `;
+
+const NAVLIST_MEMBER = [
+  { id: 1, title: '서비스', link: '/' },
+  {
+    id: 2,
+    title: '마이페이지',
+    link: '/mypage/order',
+  },
+  {
+    id: 3,
+    title: '로그아웃',
+    link: '/logout',
+  },
+];
+
+const NAVLIST = [
+  { id: 1, title: '서비스', link: '/' },
+  {
+    id: 2,
+    title: '회원가입',
+    link: '/sign-up',
+  },
+  {
+    id: 3,
+    title: '로그인',
+    link: '/login',
+  },
+];
