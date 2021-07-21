@@ -7,7 +7,7 @@ const Service = () => {
   const history = useHistory();
   const isToken = !!getToken().token;
 
-  const alert = () => {
+  const handleAlert = () => {
     if (isToken) {
       alert('주문이 완료되었습니다.');
     } else {
@@ -20,7 +20,7 @@ const Service = () => {
     <>
       <Header />
       <ServiceTemplate
-        alert={alert}
+        handleAlert={handleAlert}
         btnTitle={isToken ? '신청하기' : '주문하기'}
       />
     </>
