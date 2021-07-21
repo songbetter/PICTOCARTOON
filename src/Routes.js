@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Mypage from './pages/Mypage/Mypage';
+import MypageDetail from './pages/MypageDetail/MypageDetail';
 import Service from './pages/Service/Service';
 import SignUp from './pages/Signup/SignUp';
 
@@ -14,7 +15,7 @@ const Routes = () => {
         <Route exact path="/logout" component={Service} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/mypage/order" component={Mypage} />
-        <Route exact path="/mypage/order/:id" component={Mypage} />
+        <Route exact path="/mypage/order/:id" component={MypageDetail} />
       </Switch>
     </Router>
   );

@@ -5,7 +5,7 @@ import Item from '../molecules/Item';
 const ItemList = (props) => {
   return (
     <ListWrapper>
-      {props.itemList?.map((data) => (
+      {props.listItems?.map((data) => (
         <Item key={data.id} name={data.itemName} id={data.id} />
       ))}
     </ListWrapper>
@@ -14,4 +14,6 @@ const ItemList = (props) => {
 
 export default ItemList;
 
-const ListWrapper = styled(FlexColCenter)``;
+const ListWrapper = styled(FlexColCenter)`
+  padding: 1rem;
+`;
