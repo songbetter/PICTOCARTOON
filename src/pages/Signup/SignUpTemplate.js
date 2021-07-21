@@ -9,8 +9,7 @@ const SignUpTemplate = (props) => {
     <SignUpWrapper>
       <Logo />
       <SignUpForm
-        invalid={props.invalid}
-        inputValue={props.inputValue}
+        validation={props.validation}
         handleInput={props.handleInput}
       />
       <Button onClick={props.submit}>가입하기</Button>
