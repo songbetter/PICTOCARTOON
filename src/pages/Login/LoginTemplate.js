@@ -3,6 +3,7 @@ import LoginForm from '../../components/organisms/LoginForm';
 import Logo from '../../components/atoms/Logo';
 import styled from 'styled-components';
 import FlexColCenter from '../../components/atoms/FlexColCenter';
+import { Link } from 'react-router-dom';
 
 const LoginTemplate = (props) => {
   return (
@@ -16,6 +17,12 @@ const LoginTemplate = (props) => {
       <Button main onClick={props.submit}>
         로그인
       </Button>
+      <p>
+        회원이 아니신가요?{' '}
+        <Link to="/sign-up">
+          <strong>회원가입</strong>
+        </Link>
+      </p>
     </LoginWrapper>
   );
 };
