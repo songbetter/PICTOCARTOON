@@ -9,8 +9,12 @@ const Nav = (props) => {
   const clikedMenu = history.location.pathname;
 
   useEffect(() => {
-    clikedMenu === '/logout' && destroyToken();
-  }, [clikedMenu]);
+    if (clikedMenu === '/logout') {
+      destroyToken();
+      alert('로그아웃이 완료되었습니다.');
+      history.push('/');
+    }
+  }, [clikedMenu, history]);
 
   return (
     <NavWrapper>
