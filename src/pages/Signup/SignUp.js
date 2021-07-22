@@ -9,10 +9,12 @@ import {
   validationPassword2,
   validationPhoneNumber,
 } from '../../modules/validation';
+import { useRef } from 'react';
 
 const SignUp = () => {
   const inputValue = useSelector((state) => state.validationReducer);
   const dispatch = useDispatch();
+  const inputRef = useRef([]);
 
   const handleInput = (e) => {
     switch (e.target.name) {
@@ -34,31 +36,33 @@ const SignUp = () => {
   };
 
   const submit = () => {
-    if (
-      inputValue.email.validation &&
-      inputValue.password.validation &&
-      inputValue.password2.validation
-    ) {
-      postData(Signup_URL, inputValue);
-      alert('회원가입이 완료되었습니다.');
-    } else if (!inputValue.email.validation) {
-      alert('올바른 형식의 주소를 입력해주세요');
-    } else if (!inputValue.password.validation) {
+    if (!inputValue.email.value || !inputValue.email.validation) {
+      alert('올바른 형식의 이메일 주소를 입력해주세요');
+      inputRef.current[0].focus();
+    } else if (!inputValue.password.value || !inputValue.password.validation) {
       alert('8~15자, 영문, 숫자 조합의 비밀번호를 입력해주세요');
-    } else if (!inputValue.password2.validation) {
+      inputRef.current[1].focus();
+    } else if (
+      !inputValue.password2.value ||
+      !inputValue.password2.validation
+    ) {
       alert('비밀번호가 일치하지 않습니다');
+      inputRef.current[2].focus();
+    } else if (!inputValue.phoneNumber.value) {
+      alert('핸드폰 번호를 입력해주세요.');
+      inputRef.current[3].focus();
+    } else {
+      postData(Signup_URL, inputValue);
+      alert('회원가입이 완료되었습니다');
     }
-  };
-
-  const validation = (e) => {
-    return inputValue[e.target.name].validation;
   };
 
   return (
     <SignUpTemplate
-      validation={validation}
+      inputValue={inputValue}
       handleInput={handleInput}
       submit={submit}
+      inputRef={inputRef}
     />
   );
 };

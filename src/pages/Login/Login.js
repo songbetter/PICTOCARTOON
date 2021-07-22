@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { postData } from '../../lib/api';
 import { Login_URL } from '../../lib/api/api.config';
 import LoginTemplate from './LoginTemplate';
 
 const Login = () => {
   const [inputValue, setInputValue] = useState(INITIALVALUE);
+  const inputRef = useRef([]);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -19,7 +20,14 @@ const Login = () => {
     setInputValue(INITIALVALUE);
   };
 
-  return <LoginTemplate handleInput={handleInput} submit={submit} />;
+  return (
+    <LoginTemplate
+      handleInput={handleInput}
+      submit={submit}
+      inputValue={inputValue}
+      inputRef={inputRef}
+    />
+  );
 };
 
 export default Login;

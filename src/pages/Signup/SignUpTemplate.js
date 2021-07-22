@@ -9,10 +9,13 @@ const SignUpTemplate = (props) => {
     <SignUpWrapper>
       <Logo />
       <SignUpForm
-        validation={props.validation}
+        inputValue={props.inputValue}
         handleInput={props.handleInput}
+        inputRef={props.inputRef}
       />
-      <Button onClick={props.submit}>가입하기</Button>
+      <Button main onClick={props.submit}>
+        가입하기
+      </Button>
     </SignUpWrapper>
   );
 };

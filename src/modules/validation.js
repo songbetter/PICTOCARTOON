@@ -42,7 +42,7 @@ export default function validationReducer(state = INITIAL_STATE, action) {
         ...{
           email: {
             value: action.payload,
-            validation: regExp.test(action.type),
+            validation: regExp.test(action.payload),
           },
         },
       };
@@ -55,7 +55,7 @@ export default function validationReducer(state = INITIAL_STATE, action) {
         ...{
           password: {
             value: action.payload,
-            validation: regExp.test(action.type),
+            validation: regExp.test(action.payload),
           },
         },
       };
@@ -76,7 +76,7 @@ export default function validationReducer(state = INITIAL_STATE, action) {
         ...{
           phoneNumber: {
             value: action.payload,
-            validation: regExp.test(action.type),
+            validation: regExp.test(action.payload),
           },
         },
       };

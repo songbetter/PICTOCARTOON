@@ -1,14 +1,21 @@
 import FormInput from '../molecules/FormInput';
 
 const LoginForm = (props) => {
-  return <FormInput formdata={LOGINDATA} handleInput={props.handleInput} />;
+  return (
+    <FormInput
+      formdata={LOGINDATA}
+      handleInput={props.handleInput}
+      inputValue={props.inputValue}
+      inputRef={props.inputRef}
+    />
+  );
 };
 
 export default LoginForm;
 
 const LOGINDATA = [
   {
-    id: 1,
+    id: 5,
     type: 'email',
     title: '이메일',
     name: 'email',
@@ -16,7 +23,7 @@ const LOGINDATA = [
   },
 
   {
-    id: 2,
+    id: 6,
     type: 'password',
     title: '비밀번호',
     name: 'password',

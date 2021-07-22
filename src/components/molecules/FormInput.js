@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../atoms/Input';
 import Label from '../atoms/Label';
 import styled from 'styled-components';
 
 const FormInput = (props) => {
+  const [isOnBlur, setIsOnBlur] = useState(false);
+
   return (
     <FormWrapper>
       {props?.formdata?.map((data) => (
@@ -13,8 +15,14 @@ const FormInput = (props) => {
             type={data.type}
             name={data.name}
             placeholder={data.placeholder}
-            active={props.validation}
+            active={
+              isOnBlur && data.id === 1
+                ? !props.inputValue.email?.validation
+                : (data.id === 2) & !props.inputValue.password?.validation
+            }
             onChange={props.handleInput}
+            ref={(ref) => props.inputRef.current.push(ref)}
+            onBlur={() => data.id === 1 && setIsOnBlur(!isOnBlur)}
           />
         </React.Fragment>
       ))}

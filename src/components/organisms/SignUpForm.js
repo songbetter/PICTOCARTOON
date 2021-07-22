@@ -4,8 +4,9 @@ const SignUpForm = (props) => {
   return (
     <FormInput
       formdata={SIGNUPDATA}
-      validation={props.validation}
+      inputValue={props.inputValue}
       handleInput={props.handleInput}
+      inputRef={props.inputRef}
     />
   );
 };

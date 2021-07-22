@@ -8,8 +8,14 @@ const LoginTemplate = (props) => {
   return (
     <LoginWrapper>
       <Logo />
-      <LoginForm handleInput={props.handleInput} />
-      <Button onClick={props.submit}>로그인</Button>
+      <LoginForm
+        handleInput={props.handleInput}
+        inputValue={props.inputValue}
+        inputRef={props.inputRef}
+      />
+      <Button main onClick={props.submit}>
+        로그인
+      </Button>
     </LoginWrapper>
   );
 };
