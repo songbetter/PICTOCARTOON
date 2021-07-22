@@ -9,7 +9,11 @@ const PageBtn = (props) => {
   return (
     <PageBtnWrapper>
       {page.map((page, idx) => (
-        <Button key={idx} onClick={props.pagination}>
+        <Button
+          key={idx}
+          onClick={props.pagination}
+          main={props.currentPage === page}
+        >
           {page}
         </Button>
       ))}

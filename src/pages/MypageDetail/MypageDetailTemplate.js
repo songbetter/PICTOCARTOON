@@ -14,7 +14,9 @@ const MypageDetailTemplate = (props) => {
       <div>
         <Title>주문 상세내역:</Title> {props.orderItem.itemName}
       </div>
-      <Button onClick={props.goToBack}>뒤로가기</Button>
+      <Button main onClick={props.goToBack}>
+        뒤로가기
+      </Button>
     </MypageWrapper>
   );
 };

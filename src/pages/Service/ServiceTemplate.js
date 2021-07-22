@@ -8,7 +8,9 @@ const ServiceTemplate = (props) => {
   return (
     <ServiceWrapper>
       <Image src={tommy} alt="cat is smiling" />
-      <Button onClick={props.handleAlert}>{props.btnTitle}</Button>
+      <Button main onClick={props.handleAlert}>
+        {props.btnTitle}
+      </Button>
     </ServiceWrapper>
   );
 };

@@ -13,7 +13,11 @@ const MypageTemplate = (props) => {
         totalPages={props.totalPages}
         pagination={props.pagination}
       />
-      <PageBtn totalPages={props.totalPages} pagination={props.pagination} />
+      <PageBtn
+        totalPages={props.totalPages}
+        currentPage={props.currentPage}
+        pagination={props.pagination}
+      />
     </MypageWrapper>
   );
 };

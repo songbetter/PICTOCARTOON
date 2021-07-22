@@ -47,6 +47,7 @@ const Mypage = () => {
         orderList={orderList}
         pagination={pagination}
         loading={loading}
+        currentPage={currentPage + 1}
       />
     </>
   );
