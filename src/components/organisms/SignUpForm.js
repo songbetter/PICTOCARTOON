@@ -1,13 +1,21 @@
+import { useSelector } from 'react-redux';
 import FormInput from '../molecules/FormInput';
+import Button from '../../components/atoms/Button';
 
 const SignUpForm = (props) => {
+  const inputValue = useSelector((state) => state.validationReducer);
   return (
-    <FormInput
-      formdata={SIGNUPDATA}
-      inputValue={props.inputValue}
-      handleInput={props.handleInput}
-      inputRef={props.inputRef}
-    />
+    <>
+      <FormInput
+        formdata={SIGNUPDATA}
+        inputValue={inputValue}
+        handleInput={props.handleInput}
+        inputRef={props.inputRef}
+      />
+      <Button main onClick={props.submit}>
+        가입하기
+      </Button>
+    </>
   );
 };
 

@@ -1,13 +1,19 @@
 import FormInput from '../molecules/FormInput';
+import Button from '../../components/atoms/Button';
 
 const LoginForm = (props) => {
   return (
-    <FormInput
-      formdata={LOGINDATA}
-      handleInput={props.handleInput}
-      inputValue={props.inputValue}
-      inputRef={props.inputRef}
-    />
+    <>
+      <FormInput
+        formdata={LOGINDATA}
+        handleInput={props.handleInput}
+        inputValue={props.inputValue}
+        inputRef={props.inputRef}
+      />
+      <Button main onClick={props.submit}>
+        로그인
+      </Button>
+    </>
   );
 };
 

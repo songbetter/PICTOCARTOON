@@ -1,4 +1,3 @@
-import Button from '../../components/atoms/Button';
 import Logo from '../../components/atoms/Logo';
 import styled from 'styled-components';
 import SignUpForm from '../../components/organisms/SignUpForm';
@@ -9,13 +8,10 @@ const SignUpTemplate = (props) => {
     <SignUpWrapper>
       <Logo />
       <SignUpForm
-        inputValue={props.inputValue}
         handleInput={props.handleInput}
         inputRef={props.inputRef}
+        submit={props.submit}
       />
-      <Button main onClick={props.submit}>
-        가입하기
-      </Button>
     </SignUpWrapper>
   );
 };
