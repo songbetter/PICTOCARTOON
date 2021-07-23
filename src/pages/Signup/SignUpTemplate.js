@@ -1,7 +1,7 @@
-import Logo from '../../components/atoms/Logo';
 import styled from 'styled-components';
-import SignUpForm from '../../components/organisms/SignUpForm';
+import Logo from '../../components/atoms/Logo';
 import FlexColCenter from '../../components/atoms/FlexColCenter';
+import SignUpForm from '../../components/organisms/SignUpForm';
 
 const SignUpTemplate = (props) => {
   return (

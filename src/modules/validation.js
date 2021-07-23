@@ -37,7 +37,6 @@ export const INITIAL_STATE = {
 
 export default function validationReducer(state = INITIAL_STATE, action) {
   let regExp;
-  console.log(state);
   switch (action.type) {
     case VALIDATION_EMAIL:
       regExp =

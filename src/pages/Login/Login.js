@@ -1,7 +1,12 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { postData } from '../../lib/api';
-import { Login_URL } from '../../lib/api/api.config';
+import { LOGIN_URL } from '../../lib/api/api.config';
 import LoginTemplate from './LoginTemplate';
+
+const INITIALVALUE = {
+  email: '',
+  password: '',
+};
 
 const Login = () => {
   const [inputValue, setInputValue] = useState(INITIALVALUE);
@@ -20,7 +25,7 @@ const Login = () => {
 
   const submit = useCallback(() => {
     const error = '비밀번호를 확인해주세요.';
-    postData(Login_URL, inputValue, error);
+    postData(LOGIN_URL, inputValue, error);
     setInputValue(INITIALVALUE);
   }, [inputValue]);
 
@@ -35,8 +40,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const INITIALVALUE = {
-  email: '',
-  password: '',
-};

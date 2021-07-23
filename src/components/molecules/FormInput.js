@@ -8,7 +8,7 @@ const FormInput = (props) => {
 
   return (
     <FormWrapper>
-      {props?.formdata?.map((data) => (
+      {props.formdata.map((data) => (
         <React.Fragment key={data.id}>
           <Label>{data.title}</Label>
           <Input
@@ -17,8 +17,8 @@ const FormInput = (props) => {
             placeholder={data.placeholder}
             active={
               isOnBlur && data.id === 1
-                ? !props.inputValue.email?.validation
-                : (data.id === 2) & !props.inputValue.password?.validation
+                ? !props.inputValue.email.validation
+                : (data.id === 2) & !props.inputValue.password.validation
             }
             onChange={props.handleInput}
             ref={(ref) => props.inputRef.current.push(ref)}

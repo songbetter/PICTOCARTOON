@@ -7,7 +7,7 @@ const NavModal = (props) => {
     <Modal>
       <NavModalWrapper>
         <CloseBtn onClick={props.viewIsClose}>✖</CloseBtn>
-        <Nav navlist={props.navlist} viewIsClose={props.viewIsClose} />
+        <Nav navlist={props.navlist} />
       </NavModalWrapper>
     </Modal>
   );

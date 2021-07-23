@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import Routes from './Routes';
+import rootReducer from './modules';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../src/lib/styles/globalstyles';
 import { theme } from '../src/lib/styles/theme';
-import Routes from './Routes';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from './modules';
 
 const store = createStore(rootReducer);
 

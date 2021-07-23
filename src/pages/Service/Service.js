@@ -1,8 +1,9 @@
-import ServiceTemplate from './ServiceTemplate';
-import { getToken } from '../../lib/auth/index';
-import { useHistory } from 'react-router-dom';
-import Header from '../../components/organisms/Header';
 import { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+import ServiceTemplate from './ServiceTemplate';
+import Header from '../../components/organisms/Header';
+import { getToken } from '../../lib/auth/index';
+import { LOGIN_URL, MYPAGE_URL } from '../../lib/api/api.config';
 
 const Service = () => {
   const history = useHistory();
@@ -11,10 +12,10 @@ const Service = () => {
   const handleAlert = useCallback(() => {
     if (isToken) {
       alert('주문이 완료되었습니다.');
-      history.push('/mypage/order');
+      history.push(MYPAGE_URL);
     } else {
       alert('로그인이 필요한 서비스입니다.');
-      history.push('/login');
+      history.push(LOGIN_URL);
     }
   }, [isToken, history]);
 

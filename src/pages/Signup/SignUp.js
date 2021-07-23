@@ -1,7 +1,8 @@
+import React, { useEffect, useRef, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import SignUpTemplate from './SignUpTemplate';
 import { postData } from '../../lib/api/index';
-import { Signup_URL } from '../../lib/api/api.config';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { SIGNUP_URL } from '../../lib/api/api.config';
 import {
   INITIAL_STATE,
   validationEmail,
@@ -10,14 +11,9 @@ import {
   validationPhoneNumber,
   validationReset,
 } from '../../modules/validation';
-import React, { useEffect, useRef } from 'react';
-import { useCallback } from 'react';
 
 const SignUp = () => {
-  const inputValue = useSelector(
-    (state) => state.validationReducer,
-    shallowEqual,
-  );
+  const inputValue = useSelector((state) => state.validationReducer);
   const dispatch = useDispatch();
   const inputRef = useRef([]);
 
@@ -60,7 +56,7 @@ const SignUp = () => {
       alert('핸드폰 번호를 입력해주세요.');
       inputRef.current[3].focus();
     } else {
-      postData(Signup_URL, inputValue);
+      postData(SIGNUP_URL, inputValue);
       alert('회원가입이 완료되었습니다');
     }
   }, [inputValue]);
@@ -69,7 +65,7 @@ const SignUp = () => {
     return function cleanup() {
       dispatch(validationReset());
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <SignUpTemplate

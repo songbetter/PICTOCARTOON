@@ -1,24 +1,6 @@
 import FormInput from '../molecules/FormInput';
 import Button from '../../components/atoms/Button';
 
-const LoginForm = (props) => {
-  return (
-    <>
-      <FormInput
-        formdata={LOGINDATA}
-        handleInput={props.handleInput}
-        inputValue={props.inputValue}
-        inputRef={props.inputRef}
-      />
-      <Button main onClick={props.submit}>
-        로그인
-      </Button>
-    </>
-  );
-};
-
-export default LoginForm;
-
 const LOGINDATA = [
   {
     id: 5,
@@ -36,3 +18,21 @@ const LOGINDATA = [
     placeholder: '비밀번호를 입력해주세요',
   },
 ];
+
+const LoginForm = (props) => {
+  return (
+    <>
+      <FormInput
+        formdata={LOGINDATA}
+        handleInput={props.handleInput}
+        inputValue={props.inputValue}
+        inputRef={props.inputRef}
+      />
+      <Button main onClick={props.submit}>
+        로그인
+      </Button>
+    </>
+  );
+};
+
+export default LoginForm;

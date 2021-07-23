@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 
@@ -21,7 +22,7 @@ const PageBtn = (props) => {
   );
 };
 
-export default PageBtn;
+export default React.memo(PageBtn);
 
 const PageBtnWrapper = styled.div`
   display: flex;
