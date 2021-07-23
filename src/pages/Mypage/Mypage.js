@@ -43,6 +43,12 @@ const Mypage = () => {
     getOrderLists();
   }, [path, dispatch]);
 
+  useEffect(() => {
+    return function cleanup() {
+      dispatch(pagingOrder(1));
+    };
+  }, []);
+
   return (
     <>
       <Header />

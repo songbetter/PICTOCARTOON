@@ -65,6 +65,12 @@ const SignUp = () => {
     }
   }, [inputValue]);
 
+  useEffect(() => {
+    return function cleanup() {
+      dispatch(validationReset());
+    };
+  }, []);
+
   return (
     <SignUpTemplate
       handleInput={handleInput}

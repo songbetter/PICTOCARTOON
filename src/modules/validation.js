@@ -2,6 +2,7 @@ const VALIDATION_EMAIL = 'signUp/VALIDATION_EMAIL';
 const VALIDATION_PASSWORD = 'signUp/VALIDATION_PASSWORD';
 const VALIDATION_PASSWORD2 = 'signUp/VALIDATION_PASSWORD2';
 const VALIDATION_PHONENUMBER = 'signUp/VALIDATION_PHONENUMBER';
+const VALIDATION_RESET = 'signUp/VALIDATION_RESET';
 
 export const validationEmail = (value) => ({
   type: VALIDATION_EMAIL,
@@ -23,6 +24,10 @@ export const validationPhoneNumber = (value) => ({
   payload: value,
 });
 
+export const validationReset = () => ({
+  type: VALIDATION_RESET,
+});
+
 export const INITIAL_STATE = {
   email: { value: '', validation: true },
   password: { value: '', validation: true },
@@ -31,8 +36,8 @@ export const INITIAL_STATE = {
 };
 
 export default function validationReducer(state = INITIAL_STATE, action) {
-  console.log(state);
   let regExp;
+  console.log(state);
   switch (action.type) {
     case VALIDATION_EMAIL:
       regExp =
@@ -48,7 +53,6 @@ export default function validationReducer(state = INITIAL_STATE, action) {
       };
 
     case VALIDATION_PASSWORD:
-      // 8 ~ 15자 영문, 숫자 조합
       regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,15}$/;
       return {
         ...state,
@@ -80,6 +84,13 @@ export default function validationReducer(state = INITIAL_STATE, action) {
           },
         },
       };
+
+    case VALIDATION_RESET:
+      return {
+        ...state,
+        ...INITIAL_STATE,
+      };
+
     default:
       return state;
   }
