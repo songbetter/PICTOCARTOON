@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# 알레시오 React 프론트엔드 개발자 사전과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+코드 컴포넌트화에 익숙하고, UX를 고려하는 개발자
 
-## Available Scripts
+## 유의사항
 
-In the project directory, you can run:
+- 고객들이 돈을 지불하는 프로덕션 레벨에서 동료 개발자와 협업하는 가정 하에 개발
+- 코드 재사용성 및 컴포넌트화 고려
+- 렌더링 최적화 고려
+- 최종 커밋만 확인
+- 자유로운 주석 허용
+- CSS는 채점 요소에 포함되지 않음
 
-### `yarn start`
+## 기술스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React.js
+- Styled-Components
+- npm
+- Redux
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 프로젝트
 
-### `yarn test`
+`npm init react-app alethio-test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 기본포트 사용
+- .prettierrc 적용
+- 디바이스 크기: 모바일 414px 이하, PC 414px 초과
+- 로그인을 한 상태란 `전역 상태의 토큰 값을 가진 경우`
 
-### `yarn build`
+## 서비스
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+고객이 사진을 올리면, 만화의 한 장면처럼 바꿔서 보여주는 서비스.
+정식 출시 전, 가벼운 테스트를 위해 간단한 기능과 페이지가 필요하다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 헤더(메뉴)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### PC
 
-### `yarn eject`
+- 헤더 좌측에는 서비스 로고, 헤더 우측에는 메뉴 네비게이션이 존재한다.
+- 메뉴 네비게이션에서는 좌측부터 순서대로 3가지 메뉴가 존재한다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Mobile
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 헤더 좌측에는 서비스 로고, 헤더 우측에는 햄버거 커튼이 존재한다.
+- 햄버거 버튼을 클릭하면 화면 전체를 덮는 최상위 뷰가 나오며, 해당 뷰에는 3가지 메뉴가 존재한다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### 공통
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 로그인 여부에 따라 서비스, 회원가입 / 마이페이지, 로그인 / 로그아웃 3가지 메뉴가 존재한다.
+- 메뉴 클릭 시, 해당 페이지로 이동되고 글씨 색이 변경된다.
+  > 로그아웃 시 URL: /logout, 빈 페이지로 service 컴포넌트로 랜딩
 
-## Learn More
+### 서비스
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+프로젝트 실행 시 최초로 로딩 되는 페이지
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 서비스 상단에 이미지, 하단에 주문하기 / 신청하기 버튼이 있다.
+- 로그인을 하지 않은 사용자의 경우, 주문하기 버튼 클릭 시 로그인을 하라는 Alert 발생 후 로그인 페이지로 이동 된다.
+- 로그인을 한 사용자의 경우, 신청하기 버튼 클릭 시 주문 성공 Alert이 발생한다.
 
-### Code Splitting
+### 회원가입
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 이메일, 비밀번호, 비밀번호 확인, 연락처를 Input으로 수집한다.
+- 가입하기 버튼 클릭 시 POST 요청, 받아온 토큰 값은 전역 값으로 관리한다.
+- 회원가입에 성공하면 서비스 페이지로 이동된다.
 
-### Analyzing the Bundle Size
+#### 유효성 검증
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- 이메일: 올바른 이메일 형식이 아닐 경우, focus가 넘어 갈 때 테두리가 빨간색으로 변한다. 가입하기 버튼 클릭 시 이메일 확인 Alert 발생 후 이메일 필드로 cursor가 이동된다.
+- 비밀번호: 8~15자가 아닐경우, 입력할 때 테두리가 빨간색으로 변한다. 가입하기 버튼 클릭 시 비밀번호 확인 Alert이 발생한다.
+- 비밀번호 확인: 비밀번호와 일치하지 않는 경우, 가입하기 버튼 클릭 시 비밀번호 불일치 Alert이 발생한다.
 
-### Making a Progressive Web App
+### 로그인
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- 이메일, 비밀번호를 입력한다.
+- 로그인 버튼 클릭 시 POST 요청.
+- 로그인에 성공한 경우, 서비스 페이지로 이동된다.
+- 로그인에 실패한 경우, 비밀번호를 확인해 달라는 Alert이 발생한다. (비밀번호 8글자 미만 입력 시 401 응답)
 
-### Advanced Configuration
+### 마이 페이지
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+주문 목록을 볼 때 사용되는 페이지
 
-### Deployment
+- 해당 페이지에 진입하면, GET 요청 후 주문 목록을 불러온다.
+- 주문 목록은 주문 아이템을 컴포넌트로 가지며, 주문 아이템은 각각 좌측에 ID 우측에 itemName을 배치한다.
+- 10개씩 페이징. 페이지 번호가 1인경우 /order?page=0 호출.
+- 각 주문 아이템 클릭 시, 상세 주문 페이지로 이동 된다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 마이 페이지(상세)
 
-### `yarn build` fails to minify
+해당 주문에 대한 상세 내용을 보기 위한 페이지
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 주문 상세 내용 페이지에 진입하면, 주문 상세 내용을 가져온다.
+- 주문 상세 내용은 좌측에 ID 우측에 itemName을 배치한다.
