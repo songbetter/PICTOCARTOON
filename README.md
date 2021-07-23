@@ -28,6 +28,7 @@
 ## 서비스 (메인)
 
 실행 시 최초로 로딩 되는 페이지
+
 ![](https://images.velog.io/images/songbetter/post/2b99a3cf-a4c7-4acc-a7bc-429a4e013617/image.png)
 
 - 상단에 이미지, 하단에 주문하기 / 신청하기 버튼이 존재합니다.
@@ -45,6 +46,7 @@
 ### PC
 
 가로 414px 초과 디바이스에서 보이는 메뉴
+
 ![](https://images.velog.io/images/songbetter/post/55b5a13f-5239-42f4-8f0c-7cbd30286c3b/image.png)
 
 - 좌측에는 서비스 로고, 우측에는 메뉴 네비게이션이 존재합니다.
@@ -52,6 +54,7 @@
 ### Mobile
 
 가로 414px 이하 디바이스에서 보이는 메뉴
+
 ![](https://images.velog.io/images/songbetter/post/c8a806e2-d6da-4634-809f-c699e5fad1a0/image.png)
 
 - 좌측에는 서비스 로고, 우측에는 햄버거 버튼이 존재합니다.
@@ -61,6 +64,7 @@
 ## 회원가입
 
 회원가입 페이지
+
 ![](https://images.velog.io/images/songbetter/post/96683927-a6bf-4d72-ae69-854e47125bc5/image.png)
 
 - 이메일, 비밀번호, 비밀번호 확인, 핸드폰 번호를 입력받습니다.
@@ -73,6 +77,7 @@
 ## 로그인
 
 로그인 페이지
+
 ![](https://images.velog.io/images/songbetter/post/25b6fb64-a3fb-427a-92eb-41e65541ba21/image.png)
 
 - 이메일과 비밀번호를 입력받습니다.
@@ -84,6 +89,7 @@
 ## 마이페이지
 
 주문 목록을 보기 위한 페이지
+
 ![](https://images.velog.io/images/songbetter/post/56854130-68ca-428d-9d2b-3edae55d4066/image.png)
 
 - 주문 목록은 기본적으로 10개씩 노출됩니다.
@@ -94,6 +100,7 @@
 ## 마이 페이지(상세)
 
 주문 아이템 상세 내용을 보기 위한 페이지
+
 ![](https://images.velog.io/images/songbetter/post/83ca4a18-4305-4fb4-aa73-73f8b9726226/image.png)
 
 - 마이페이지에서 주문 아이템을 클릭하면 상세 페이지로 이동하고, 주문 상세 내용을 가져옵니다.
