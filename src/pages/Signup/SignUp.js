@@ -1,41 +1,49 @@
 import SignUpTemplate from './SignUpTemplate';
 import { postData } from '../../lib/api/index';
 import { Signup_URL } from '../../lib/api/api.config';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import {
   INITIAL_STATE,
   validationEmail,
   validationPassword,
   validationPassword2,
   validationPhoneNumber,
+  validationReset,
 } from '../../modules/validation';
-import { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 
 const SignUp = () => {
-  const inputValue = useSelector((state) => state.validationReducer);
+  const inputValue = useSelector(
+    (state) => state.validationReducer,
+    shallowEqual,
+  );
   const dispatch = useDispatch();
   const inputRef = useRef([]);
 
-  const handleInput = (e) => {
-    switch (e.target.name) {
-      case 'email':
-        dispatch(validationEmail(e.target.value));
-        break;
-      case 'password':
-        dispatch(validationPassword(e.target.value));
-        break;
-      case 'password2':
-        dispatch(validationPassword2(e.target.value));
-        break;
-      case 'phoneNumber':
-        dispatch(validationPhoneNumber(e.target.value));
-        break;
-      default:
-        return INITIAL_STATE;
-    }
-  };
+  const handleInput = useCallback(
+    (e) => {
+      switch (e.target.name) {
+        case 'email':
+          dispatch(validationEmail(e.target.value));
+          break;
+        case 'password':
+          dispatch(validationPassword(e.target.value));
+          break;
+        case 'password2':
+          dispatch(validationPassword2(e.target.value));
+          break;
+        case 'phoneNumber':
+          dispatch(validationPhoneNumber(e.target.value));
+          break;
+        default:
+          return INITIAL_STATE;
+      }
+    },
+    [dispatch],
+  );
 
-  const submit = () => {
+  const submit = useCallback(() => {
     if (!inputValue.email.value || !inputValue.email.validation) {
       alert('올바른 형식의 이메일 주소를 입력해주세요');
       inputRef.current[0].focus();
@@ -55,11 +63,10 @@ const SignUp = () => {
       postData(Signup_URL, inputValue);
       alert('회원가입이 완료되었습니다');
     }
-  };
+  }, [inputValue]);
 
   return (
     <SignUpTemplate
-      inputValue={inputValue}
       handleInput={handleInput}
       submit={submit}
       inputRef={inputRef}

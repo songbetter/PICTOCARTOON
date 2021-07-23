@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { getToken } from '../../lib/auth';
 import FlexRowBetween from '../atoms/FlexRowBetween';
@@ -9,7 +9,6 @@ import NavModal from './NavModal';
 
 const Header = () => {
   const isLogin = !!getToken().token;
-
   const [viewIsOn, setViewIsOn] = useState(false);
 
   return viewIsOn ? (
@@ -28,7 +27,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
 
 const HeaderWrapper = styled(FlexRowBetween)`
   padding: 0px 15px;

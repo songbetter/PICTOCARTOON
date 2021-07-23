@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -9,7 +10,7 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default React.memo(Logo);
 
 const LogoWrapper = styled.div`
   color: ${({ theme }) => theme.colors.main};

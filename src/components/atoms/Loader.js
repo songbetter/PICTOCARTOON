@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Loader = () => {
@@ -12,7 +13,7 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default React.memo(Loader);
 
 const bounce = keyframes`
     0%,
