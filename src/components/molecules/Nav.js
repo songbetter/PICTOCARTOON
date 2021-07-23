@@ -1,26 +1,33 @@
-import { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { destroyToken } from '../../lib/auth';
 import List from '../atoms/List';
+import { LOGOUT_URL, SERVICE_URL } from '../../lib/api/api.config';
+import { destroyToken } from '../../lib/auth';
 
 const Nav = (props) => {
   const history = useHistory();
   const clikedMenu = history.location.pathname;
 
-  useEffect(() => {
-    if (clikedMenu === '/logout') {
+  const onClickList = (e) => {
+    if (e.target.dataset.idx === LOGOUT_URL) {
       destroyToken();
       alert('로그아웃이 완료되었습니다.');
-      history.push('/');
+      document.location.href = SERVICE_URL;
+    } else {
+      history.push(e.target.dataset.idx);
     }
-  }, [clikedMenu, history]);
+  };
 
   return (
     <NavWrapper>
-      {props?.navlist?.map((list) => (
-        <List key={list.id} active={clikedMenu === list.link}>
-          <Link to={list.link}>{list.title}</Link>
+      {props.navlist.map((list) => (
+        <List
+          key={list.id}
+          data-idx={list.link}
+          active={clikedMenu === list.link}
+          onClick={onClickList}
+        >
+          {list.title}
         </List>
       ))}
     </NavWrapper>
