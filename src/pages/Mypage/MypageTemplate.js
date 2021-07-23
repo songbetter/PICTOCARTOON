@@ -1,21 +1,29 @@
+import { shallowEqual, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import Loader from '../../components/atoms/Loader';
 import PageBtn from '../../components/molecules/PageBtn';
 import ItemList from '../../components/organisms/ItemList';
-import Loader from '../../components/atoms/Loader';
 
 const MypageTemplate = (props) => {
-  console.log('마이페이지Temp');
-  return props.loading ? (
+  const [isLoading, totalPages, orderList] = useSelector(
+    (state) => [
+      state.orderReducer.isLoading,
+      state.orderReducer.totalPages,
+      state.orderReducer.content,
+    ],
+    shallowEqual,
+  );
+  return isLoading ? (
     <Loader />
   ) : (
     <MypageWrapper>
       <ItemList
-        listItems={props.orderList}
-        totalPages={props.totalPages}
+        listItems={orderList}
+        totalPages={totalPages}
         pagination={props.pagination}
       />
       <PageBtn
-        totalPages={props.totalPages}
+        totalPages={totalPages}
         currentPage={props.currentPage}
         pagination={props.pagination}
       />
