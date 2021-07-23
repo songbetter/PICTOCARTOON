@@ -4,6 +4,7 @@ import ItemList from '../../components/organisms/ItemList';
 import Loader from '../../components/atoms/Loader';
 
 const MypageTemplate = (props) => {
+  console.log('마이페이지Temp');
   return props.loading ? (
     <Loader />
   ) : (
