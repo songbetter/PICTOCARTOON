@@ -24,6 +24,12 @@
         ├─Service
         └─Signup
 ```
+### 주요 기능
+- Atomic Design Pattern을 활용 컴포넌트 관심사 분리
+- 정규표현식을 이용하여 Sign-Up Validation 기능 구현
+- Redux를 이용하여 Pagination 기능 구현
+- React hooks를 이용하여 Rendering Optimization
+- 미디어쿼리를 이용하여 반응형 웹 구현
 
 ## 서비스 (메인)
 
@@ -125,3 +131,6 @@ handleInput, submit, handleAlert, pagination 함수를 useCallback 훅으로 감
 - 컴포넌트를 작은 단위로 쪼개 재사용할 수 있도록 하고, 로직은 최상위 컴포넌트에서 구현했습니다.
 - Custom Hook을 만들어 반복되는 로직에 재사용할 수 있도록 했습니다.
 - 상수 변수는 컴포넌트 바깥에서 전역으로 선언하여 렌더링 시 불필요한 객체 생성을 피할 수 있도록 했습니다.
+<!-- 
+## Review
+[블로그 바로가기](https://velog.io/@songbetter/PICTOCARTOON) -->
